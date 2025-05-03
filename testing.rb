@@ -27,18 +27,18 @@ Rails.application.routes.draw do
           #   resources :validate_np_customer, only: %i[create]
           # end
 
-          namespace :online_design do
-            resources :designs, only: :index, param: :design_id do
-              member do
-                resources :pages, only: [], param: :page_id do
-                  member do
-                    resource :thumbnail, only: :show
-                  end
-                end
-              end
-            end
-            resources :pdf_processes, param: :uuid, only: %i[show create]
-          end
+          # namespace :online_design do
+          #   resources :designs, only: :index, param: :design_id do
+          #     member do
+          #       resources :pages, only: [], param: :page_id do
+          #         member do
+          #           resource :thumbnail, only: :show
+          #         end
+          #       end
+          #     end
+          #   end
+          #   resources :pdf_processes, param: :uuid, only: %i[show create]
+          # end
           namespace :order_projects do
             resources :unseen_non_delivery_list_download, only: :index
           end
