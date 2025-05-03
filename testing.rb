@@ -78,17 +78,17 @@ Rails.application.routes.draw do
               resource :cancel, controller: 'order_projects/cancels', only: :update, as: :cancel_order_project
             end
           end
-          resources :projects, only: %i[index show create update destroy], param: :uuid do
-            resource :address_list, only: %i[create destroy], controller: 'project_address_lists'
-            member do
-              resource :update_name, controller: 'projects/update_name', only: :update
-              resource :project_products, only: :update do
-                collection do
-                  resource :confirm_print_data, only: %i[update]
-                end
-              end
-            end
-          end
+          # resources :projects, only: %i[index show create update destroy], param: :uuid do
+          #   resource :address_list, only: %i[create destroy], controller: 'project_address_lists'
+          #   member do
+          #     resource :update_name, controller: 'projects/update_name', only: :update
+          #     resource :project_products, only: :update do
+          #       collection do
+          #         resource :confirm_print_data, only: %i[update]
+          #       end
+          #     end
+          #   end
+          # end
           resources :user_address_lists, param: :uuid, only: %i[show create] do
             member do
               get :preview
